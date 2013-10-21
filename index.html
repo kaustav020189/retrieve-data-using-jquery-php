@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Retrieve data using JQuery PHP - Demo by A 100 Web Solutions</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    </head>
+    <body>
+        <h1>Retrieve data using JQuery PHP - DEMO</h1>
+        <div class="box">
+            <ul>
+                <li><label>Try a custom username</label><input type="text" id="username" autocomplete="off"/></li>
+                <li></li>
+            </ul>
+        </div>
+<script>
+$(document).ready(function(){
+    $("input").keyup(function(){
+        var thiss = $(this);
+        var value = thiss.val(); 
+        $.get("check.php",{value:value},function(data){
+            thiss.parent('li').siblings('li').html(data);
+        });
+    });
+});
+</script>
+    </body>
+</html>
